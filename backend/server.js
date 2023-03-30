@@ -19,7 +19,7 @@ connectDB()
 const userRoutes = require('./routes/userRoutes')
 const authRoutes = require('./routes/authRoutes')
 const trailRoutes = require('./routes/trailRoutes')
-
+const commentRoutes = require('./routes/commentRoutes.js')
 
 const {authorize} = require('./middleware/authMiddleware')
 
@@ -29,6 +29,7 @@ app.use(cors())
 app.use('/users', authorize, userRoutes)
 app.use('/auth', authRoutes)
 app.use('/trails', trailRoutes)
+app.use('/comments/:id', commentRoutes)
 
 
 //Listen to given port

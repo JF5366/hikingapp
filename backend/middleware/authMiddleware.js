@@ -1,8 +1,10 @@
 const jwt = require('jsonwebtoken')
 
+const Trail = require('../models/trailModel')
+const Comment = require('../models/commentModel')
+
 async function authorize(req, res, next) {
     try{
-        //check if the request has a token
         let token = req.header('Authorization')
 
         if(!token){
@@ -29,6 +31,24 @@ async function authorize(req, res, next) {
     }
 }
 
+async function confirmUserAccess(req, res, next) {
+    try {
+        let document;
+        if (req.baseUrl.includes('trail')) { 
+            document = await Trail.findOne({ _id: req.params.id, user: req.user })
+        } else {
+            document = await Comment.findOne({ _id: req.params.id, user: req.user })
+        }
+        if (!document) {
+            throw new Error('User did not create this document')
+        }
+        next()
+    } catch(err) {
+        res.status(403).json({ error: err.message })
+    }
+}
+
 module.exports = {
-    authorize
+    authorize,
+    confirmUserAccess
 }

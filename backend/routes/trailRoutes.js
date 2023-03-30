@@ -4,32 +4,28 @@ const router = express.Router()
 
 const trailControl = require('../controllers/trailController')
 
+const { authorize, confirmUserAccess } = require('../middleware/authMiddleware')
 
+// seed 
+router.get('/seed', trailControl.seed)
 
 // index
 router.get('/', trailControl.index)
 
-// // new
-// router.get('/new', trailControl.new)
 
-// router.delete('/clear', trailControl.clear)
+// delete
+router.delete('/:id', authorize, confirmUserAccess, trailControl.delete)
 
-// // delete
-// router.delete('/:id', trailControl.delete)
+// update
+router.put('/:id', authorize, confirmUserAccess, trailControl.update)
 
-// // update
-// router.put('/:id', trailControl.update)
+// create
+router.post('/', trailControl.create)
 
-// // seed 
-// router.post('/seed', trailControl.seed)
+// show
+router.get('/:id', trailControl.show)
 
-// // create
-// router.post('/', trailControl.create)
 
-// // edit 
-// router.get('/:id/edit', trailControl.edit)
 
-// // show
-// router.get('/:id', trailControl.show)
 
 module.exports = router;
