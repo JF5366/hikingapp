@@ -66,40 +66,50 @@ function Show({ user }) {
     }
 
     return (
-            <div>
+            <div className="show">
                 <div className="trailz">
-                    <h2>{trail.name}</h2>
-                    <h4>{trail.length}</h4>
-                    <h4>{trail.start}</h4>
-                    <h4>{trail.end}</h4>
+                  <div className="trailDisplay">
+                    <div className="info">
+                        <h2>{trail.name}</h2>
+                        <h4>Trail Length: {trail.length} miles</h4>
+                        <h4>Trail Start Location: {trail.start}</h4>
+                        <h4>Trail End Location: {trail.end}</h4>
+                        <h4>Estimated Time to Hike: {trail.time}</h4>
+                    </div>
+                    <div className="image">
+                     <img style={{width:"300px", height:"300px"}} src={trail.image} alt="" />
+                    </div>
+                    </div>
+                    <div>
                     <h5 style={{ opacity: '.3'}}>Trail by {trail.user} on {new Date(trail.createdAt).toLocaleDateString()} at {new Date(trail.createdAt).toLocaleTimeString()}</h5>
-                    <div className='p-body'>{trail.body}</div><br /><br />
+                    <div className='tBody'>{trail.body}</div>
 
                     {
                         trail.comments?.length ?
-                        <>
-                            <div>Comments:</div>
+                        <div className="comments">
+                            <div className="comment">Comments:</div>
                             <div>{trail.comments.map((comment, i) => 
                                 <div key={i} className="comm">
-                                    <div>{comment.user}</div>
-                                    <div>{comment.body}</div>
+                                    
+                                    <div className="cBody">{comment.body}</div>
+                                    <div className="cUser">{comment.user}</div>
                                     {comment.user === user &&
                                         <>
-                                            <button onClick={() => handleDeleteComment(comment)}>X</button>
+                                            <button onClick={() => handleDeleteComment(comment)}>Delete</button>
                                             <Link to={`/trails/${trail._id}/comments/${comment._id}`}><span>+</span></Link>
                                         </>
                                     }
                                 </div>
                             )}</div>
                             <br/><br/>
-                        </>
+                        </div>
                         : ''
                     }
                     {user && 
                         <details ref={detailsRef}>
                             <summary style={{ opacity: '.5' }}>Leave a comment:</summary>
                             <form onSubmit={handleSubmit}>
-                                <textarea ref={bodyRef} id="lc" cols="1" rows="1" />
+                                <textarea style={{width:"300px", height:"100px", margin:"auto"}} ref={bodyRef} id="lc" cols="10" rows="1" />
                                 <button>Comment</button>
                             </form>
                         </details>
@@ -113,11 +123,12 @@ function Show({ user }) {
                                     <button>Edit</button>
                                 </Link>
                             </>
-                        // }
+                        {/* // } */}
                         <Link to='/trails'>
                             <button>Back</button>
                         </Link>
                     </div>
+                </div>
                 </div>
             </div>
     )

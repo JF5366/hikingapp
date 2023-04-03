@@ -29,7 +29,7 @@ app.use(cors())
 app.use('/users', authorize, userRoutes)
 app.use('/auth', authRoutes)
 app.use('/trails', trailRoutes)
-app.use('/comments/:id', commentRoutes)
+app.use('/comments', commentRoutes)
 
 
 //Listen to given port

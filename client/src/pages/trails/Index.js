@@ -15,8 +15,8 @@ function Index({ user }) {
     }, [])
     console.log(trails)
     return (
-            <div>
-                <h1>Index View of Trails</h1>
+            <div className="index">
+                <h1>Long Trails in the United States</h1>
                 <div id="trails">
 
                         {trails?.map((trail, index) => 

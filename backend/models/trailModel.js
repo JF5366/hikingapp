@@ -6,6 +6,8 @@ const trailSchema = new Schema({
   length: { type: Number, required: false },
   start: { type: String, required: false},
   end: { type: String, required: true },
+  time: { type: String, required: true },
+  image: {type: String, required: true},
   comments: [{
     // an id referencing the comment
     type: mongoose.Types.ObjectId,

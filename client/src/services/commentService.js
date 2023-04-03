@@ -13,7 +13,7 @@ export async function deleteComment(commentId, trailId) {
 export async function createComment(comment, trailId) {
     const axios = customAxiosWithAuth()
     try {
-        const response = await axios.post(`/comments/trail/${trailId}`, comment)
+        const response = await axios.post(`/comments/${trailId}/comments`, comment)
         return response.data
     } catch(err) {
         console.log(err.message)
