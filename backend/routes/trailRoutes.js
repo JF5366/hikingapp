@@ -12,6 +12,8 @@ router.get('/seed', trailControl.seed)
 // index
 router.get('/', trailControl.index)
 
+// // new
+// router.post('/', trailControl.new)
 
 // delete
 router.delete('/:id', authorize, confirmUserAccess, trailControl.delete)

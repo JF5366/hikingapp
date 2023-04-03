@@ -16,7 +16,7 @@ async function  register(req, res) {
         const newUser = await User.create({...req.body, password: encryptedPassword})
 
         const payload = {id: newUser._id, user: newUser.username}
-        const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: 300})
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: "7d"})
 
         res.status(200).json({token})
     }catch(err){
@@ -43,7 +43,7 @@ async function login(req, res) {
         }
 
         const payload = { id: foundUser._id, user: foundUser.username }
-        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 300 })
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "7d" })
 
         res.status(200).json({ token }) 
 

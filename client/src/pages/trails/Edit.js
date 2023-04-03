@@ -9,8 +9,10 @@ function Edit() {
     const navigate = useNavigate()
     const params = useParams()
 
-    const bodyRef = useRef()
-    const subjectRef = useRef()
+    let nameRef = useRef()
+    let lengthRef = useRef()
+    let startRef = useRef()
+    let endRef = useRef()
 
     useEffect(() => {
         getTrails(params.id).then(data => setTrails(data))
@@ -19,8 +21,10 @@ function Edit() {
     async function handleSubmit(e) {
         e.preventDefault()
         let updatedTrail= {
-            subject: subjectRef.current.value,
-            body: bodyRef.current.value
+            name: nameRef.current.value,
+            length: lengthRef.current.value,
+            start: startRef.current.value,
+            end: endRef.current.value
         }
         await updateTrails(trail._id, updatedTrail)
         navigate(`/trails/${trail._id}`)
@@ -31,11 +35,17 @@ function Edit() {
             <h1>Edit Trail</h1>
             <div className='buttons' style={{ flexDirection: 'column' }}>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="nme">Subject:</label><br />
-                    <input type="text" id="nme" ref={subjectRef} defaultValue={trail.subject} /><br /><br />
+                    <label htmlFor="nme">Name:</label><br />
+                    <input type="text" id="nme" ref={nameRef} defaultValue={trail.name} /><br /><br />
 
-                    <label htmlFor="clr">Body:</label><br />
-                    <textarea ref={bodyRef} id="clr" cols="30" rows="10" defaultValue={trail.body} /><br /><br />
+                    <label htmlFor="lgt">Length:</label><br />
+                    <textarea ref={lengthRef} id="lgt" cols="30" rows="10" defaultValue={trail.length} /><br /><br />
+
+                    <label htmlFor="str">Start:</label><br />
+                    <textarea ref={startRef} id="str" cols="30" rows="10" defaultValue={trail.start} /><br /><br />
+
+                    <label htmlFor="ed">End:</label><br />
+                    <textarea ref={endRef} id="ed" cols="30" rows="10" defaultValue={trail.end} /><br /><br />
 
                     <button>Submit</button>
                 </form>

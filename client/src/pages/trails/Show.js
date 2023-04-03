@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { createComment, deleteComment } from "../../services/commentService"
-import { deleteTrails, getTrails } from "../../services/trailService"
+import { deleteTrails, getTrails, updateTrails } from "../../services/trailService"
+import axios from 'axios'
 
 function Show({ user }) {
 
@@ -28,8 +29,23 @@ function Show({ user }) {
         setTrail(updatedTrail)
     }
 
-    async function handleDelete() {
-        await deleteTrails(trail._id)
+    // async function handleEditTrails() {
+    //     await updateTrails(trail._id)
+    //     navigate('/trails/Edit')
+    // }
+
+
+    async function handleDeleteTrail() {
+       // await deleteTrails(trail._id)
+        console.log('hi')
+        try {
+            let token = localStorage.getItem("token")
+            await axios.delete(`http://localhost:8080/trails/${trail._id}`, {headers: {
+                Authorization: `Bearer ${token}`
+            }})
+        } catch(err) {
+            console.log(err.message)
+        }
         navigate('/trails')
     }
 
@@ -52,7 +68,10 @@ function Show({ user }) {
     return (
             <div>
                 <div className="trailz">
-                    <h2>{trail.subject}</h2>
+                    <h2>{trail.name}</h2>
+                    <h4>{trail.length}</h4>
+                    <h4>{trail.start}</h4>
+                    <h4>{trail.end}</h4>
                     <h5 style={{ opacity: '.3'}}>Trail by {trail.user} on {new Date(trail.createdAt).toLocaleDateString()} at {new Date(trail.createdAt).toLocaleTimeString()}</h5>
                     <div className='p-body'>{trail.body}</div><br /><br />
 
@@ -87,14 +106,14 @@ function Show({ user }) {
                     }
                     
                     <div className="buttons">
-                        {trail.user === user &&
+                        {/* {trail.user === user && */}
                             <>
                                 <button onClick={handleDeleteTrail}>Delete</button>
                                 <Link to={`/trails/${trail._id}/edit`}>
                                     <button>Edit</button>
                                 </Link>
                             </>
-                        }
+                        // }
                         <Link to='/trails'>
                             <button>Back</button>
                         </Link>

@@ -14,6 +14,9 @@ function Login({ setUser }) {
 
     const navigate = useNavigate()
 
+    // const userRef = useRef()
+    // const passRef = useRef()
+    
     let [form, setForm] = useState(emptyForm)
 
     const handleChange = (e) => {
@@ -22,7 +25,11 @@ function Login({ setUser }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        // let newform = {
+        //     username: userRef.current.value,
+        //     password: passwordRef.current.value
+        // }
+        // setForm(newform)
         const token = await userLogin(form)
 
         if (!token) {
@@ -42,21 +49,21 @@ function Login({ setUser }) {
         <div className='user-auth'>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="usnm">Username:</label>
                 <br />
                 <input 
                     type="text" 
-                    id="username"
+                    id="usnm"
                     name="username"
                     onChange={handleChange}
                     value={form.username}
                 />
                 <br /><br />
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="pss">Password:</label>
                 <br />
                 <input 
                     type="password" 
-                    id="password"
+                    id="pss"
                     name="password"
                     onChange={handleChange}
                     value={form.password}

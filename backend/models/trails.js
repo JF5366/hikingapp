@@ -1,21 +1,21 @@
 const trails = [
     {
         name: 'Pacific Crest Trail',
-        length: '2,650',
+        length: 2650,
         start: 'Mexico',
         end: 'Canada',
         comments: []
     },
     {
         name: 'Appalacian Trail',
-        length: '2,190',
+        length: 2190,
         start: 'Georgia',
         end: 'Maine',
         comments: []
     },
     {
         name: 'Continental Divide Trail',
-        length: '3,100',
+        length: 3100,
         start: 'Mexico',
         end: 'Canada',
         comments: []

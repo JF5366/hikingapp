@@ -4,8 +4,10 @@ const Comments = require('../models/commentModel')
 
 const trails = require('../models/trails')
 
+
 module.exports.seed = async (req, res) => {
-    await TrailSeed.create(trails)
+    await Trails.deleteMany({})
+    await Trails.create(trails)
     res.redirect('/trails')
 }
 
@@ -17,16 +19,21 @@ module.exports.index = async(req, res) => {
     } catch(err) {
      console.log(err)
      res.send(err.message)
+    }
 }
-}
+
+// module.exports.new = async (req, res) => {
+//     res.render('trails/New')
+// }
 
 module.exports.delete = async (req, res) => {
+    console.log('run')
     const trails = await Trails.findByIdAndDelete(req.params.id)
+   
+    // await Comments.deleteMany({ _id: { 
 
-    await Comments.deleteMany({ _id: { 
-
-        $in: trails.comments 
-    }})
+    //     $in: trails.comments 
+    // }})
     res.redirect('/trails')
 }
 

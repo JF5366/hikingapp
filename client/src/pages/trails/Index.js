@@ -22,16 +22,16 @@ function Index({ user }) {
                         {trails?.map((trail, index) => 
                             <Link to={`/trails/${trail._id}`} key={index}>
                                 <div className="trailz">
-                                    {trail.subject}
+                                    {trail.name}
                                 </div>
                             </Link>
                         )}
             
-                    {/* {user &&  */}
+                    {user && 
                         <Link to="/trails/new">
                             <button>NEW TRAIL</button>
                         </Link>
-                    {/* } */}
+                    }
     
                 </div>
             </div>

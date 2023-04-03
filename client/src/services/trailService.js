@@ -23,8 +23,9 @@ export async function getTrails(id) {
 
 export async function deleteTrails(id) {
     const axios = customAxiosWithAuth()
+    console.log('running', id)
     try {
-        await axios.delete(`/trails/${id}`)
+        await axios.delete(`trails/${id}`)
     } catch(err) {
         console.log(err.message)
     }
@@ -33,7 +34,7 @@ export async function deleteTrails(id) {
 export async function createTrails(trail) {
     const axios = customAxiosWithAuth()
     try {
-        const response = await axios.trail('/trails', trail)
+        const response = await axios.post('/trails', trail)
         return response.data
     } catch(err) {
         console.log(err.message)
