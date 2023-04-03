@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { userInfo, userRegister } from "../../services/userService";
+import { userInfo, userRegister } from "../services/userService";
 
 let emptyForm = { 
     username: '',
@@ -35,7 +35,7 @@ function Register({ setUser }) {
         const user = await userInfo()
         setUser(user)
 
-        navigate('/posts')
+        navigate('/trails')
     }
 
     return ( 

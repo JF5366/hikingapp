@@ -33,7 +33,7 @@ export async function getComment(commentId, trailId) {
 export async function updateComment(comment, commentId, trailId) {
     const axios = customAxiosWithAuth()
     try {
-        await axios.put(`/comments/t/${trailId}/c/${commentId}`, comment)
+        await axios.put(`/comments/p/${trailId}/c/${commentId}`, comment)
     } catch(err) {
         console.log(err.message)
     }

@@ -4,7 +4,7 @@ const Comments = require('../models/commentModel')
 module.exports.createComment = async (req, res) => {
     try {
         const comment = await Comments.create(req.body)
-        await Trails.findByIdAndUpdate(req.params.pid, {
+        await Trails.findByIdAndUpdate(req.params.cid, {
             $push: {
                 comments: comment._id
             }
@@ -18,7 +18,7 @@ module.exports.createComment = async (req, res) => {
 module.exports.deleteComment = async (req, res) => {
     try {
         await Comments.findByIdAndDelete(req.params.id)
-        await Trails.findByIdAndUpdate(req.params.pid, {
+        await Trails.findByIdAndUpdate(req.params.cid, {
             $pull: {
 
                 comments: req.params.id
@@ -32,7 +32,7 @@ module.exports.deleteComment = async (req, res) => {
 
 module.exports.indexComment = async (req, res) => {
     try {
-        const order = await Trails.findById(req.params.pid).populate('comments')
+        const order = await Trails.findById(req.params.cid).populate('comments')
         res.json(order.comments)
     } catch(err) {
         res.status(400).json({ error: err.message })
@@ -59,25 +59,25 @@ module.exports.updateComment = async (req, res) => {
 
 
 
-//COMMENTS
-module.exports.createComment = async (req, res) => {
-    const comment = await Comments.create(req.body)
-    await Trails.findByIdAndUpdate(req.params.id, {
-        $push: {
-            comments: comment._id
-        }
-    })
-    res.redirect(`/trails/${req.params.id}`)
-}
-module.exports.deleteComment = async (req, res) => {
-    await Comments.findByIdAndDelete(req.params.cid)
-    await Trails.findByIdAndUpdate(req.params.id, {
-        $pull: {
-            comments: req.params.cid
-        }
-    })
-    res.redirect(`/trails/${req.params.id}`)
-}
+// //COMMENTS
+// module.exports.createComment = async (req, res) => {
+//     const comment = await Comments.create(req.body)
+//     await Trails.findByIdAndUpdate(req.params.id, {
+//         $push: {
+//             comments: comment._id
+//         }
+//     })
+//     res.redirect(`/trails/${req.params.id}`)
+// }
+// module.exports.deleteComment = async (req, res) => {
+//     await Comments.findByIdAndDelete(req.params.cid)
+//     await Trails.findByIdAndUpdate(req.params.id, {
+//         $pull: {
+//             comments: req.params.cid
+//         }
+//     })
+//     res.redirect(`/trails/${req.params.id}`)
+// }
 
 // module.exports.indexComment = async (req, res) => {
 //     const trails = await Trails.findById(req.params.id).populate('comments')

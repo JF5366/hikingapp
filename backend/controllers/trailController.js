@@ -1,10 +1,11 @@
+const TrailSeed = require('../models/trails')
 const Trails = require('../models/trailModel')
 const Comments = require('../models/commentModel')
 
 const trails = require('../models/trails')
 
 module.exports.seed = async (req, res) => {
-    await Trails.create(trails)
+    await TrailSeed.create(trails)
     res.redirect('/trails')
 }
 

@@ -11,8 +11,8 @@ import NewTrail from './pages/trails/New';
 import ShowTrail from './pages/trails/Show';
 import EditComment from './pages/comments/Edit';
 
-import Register from './pages/users/Register';
-import Login from './pages/users/Login';
+import Register from './users/Register';
+import Login from './users/Login';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -46,20 +46,20 @@ function App() {
       <Routes>
           <Route path='/trails' element={<IndexTrail user={loggedIn} />} />
           <Route path='/trails/:id' element={<ShowTrail user={loggedIn} />} />
-          {/* {loggedIn ?
+          {loggedIn ?
             <>
               <Route path='/trails/new' element={<NewTrail user={loggedIn} />} />
               <Route path='/trails/:id/edit' element={<EditTrail />} />
               <Route path='/trails/:id/comments/:cid' element={<EditComment />} />
               {!isLoading && <Route path='*' element={<Navigate to='/trails' />} />}
             </>
-            : */}
+            :
             <>
               <Route path='/register' element={<Register setUser={setUser} />} />
               <Route path='/login' element={<Login setUser={setUser} />} />
               {!isLoading && <Route path='*' element={<Navigate to='/login' />} />}
             </>
-   {/* //       } */}
+        } 
       </Routes>
     </div>
   );
