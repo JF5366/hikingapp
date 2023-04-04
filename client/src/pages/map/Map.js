@@ -1,54 +1,60 @@
 import React, { useRef } from 'react';
-import { Map, TileLayer } from 'react-leaflet';
+//import { Map, TileLayer } from 'react-leaflet';
+import { MapContainer } from 'https://cdn.esm.sh/react-leaflet/MapContainer'
+import { TileLayer } from 'https://cdn.esm.sh/react-leaflet/TileLayer'
+import { useMap } from 'https://cdn.esm.sh/react-leaflet/hooks'
+//import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 
 
-//var maps = L.map('maps').setView([51.505, -0.09], 13);
 
-const defaultCenter = [38.9072, -77.0369];
-const defaultZoom = 8;
-const disneyWorldLatLng = [28.3852, -81.5639];
-const disneyLandLatLng = [33.8121, -117.9190];
 
 const MapChart = () => {
-    const mapRef = useRef();
-
-    /**
-     * handleOnSetView
-     */
-  
-    function handleOnSetView() {
-      const { current = {} } = mapRef;
-      const { leafletElement: map } = current;
-  
-      map.setView(disneyWorldLatLng, 14);
-    }
-  
-    /**
-     * handleOnFlyTo
-     */
-  
-    function handleOnFlyTo() {
-      const { current = {} } = mapRef;
-      const { leafletElement: map } = current;
-  
-      map.flyTo(disneyLandLatLng, 14, {
-        duration: 2
-      });
-    }
-  
     return (
-      <div className="App">
-        <Map ref={mapRef} center={defaultCenter} zoom={defaultZoom}>
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; <a href=&quot;https://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> contributors" />
-        </Map>
-        </div>
-        );
-     };
+        <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={[51.505, -0.09]}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </MapContainer>
+    
+
+    )
+}
+export default MapChart
+
+
+//.....................................................
+
+// const MapChart = () => {
+//     state = {
+//         center: [51.505, -0.091],
+//         zoom: 13,
+//       };
+//         return (
+//           <div>
+//             <Map center={this.state.center} zoom={this.state.zoom}>
+//               <TileLayer
+//                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+//                 url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+//               />
+//               <Marker position={this.state.center}>
+//                 <Popup>
+//                   A pretty CSS3 popup. <br /> Easily customizable.
+//                 </Popup>
+//               </Marker>
+//             </Map>
+//           </div>
+//         );
+//       }
         
-export default MapChart;
-
-
+// export default MapChart;
+//.................................................
 // import React from "react";
 // import { geoCentroid } from "d3-geo";
 // import {
