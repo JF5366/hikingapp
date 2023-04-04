@@ -27,7 +27,7 @@ function Edit() {
     }
 
     return ( 
-        <div>
+        <div className='editComm'>
             <h1>Edit Comment</h1>
             <div className='buttons' style={{ flexDirection: 'column' }}>
                 <form onSubmit={handleSubmit}>

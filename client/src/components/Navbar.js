@@ -8,12 +8,15 @@ function Navbar({ user, setUser }) {
   };
 
   return (
-    <ul className="user-auth">
+    <ul className="user-auth navbar">
       {user ? 
         <>
-          <li style={{ color: "black" }}>Welcome {user}!</li>
+          <li>Welcome {user}!</li>
           <li className="trails-nav">
             <Link to="/trails">Trails</Link>
+          </li>
+          <li className="map-nav">
+            <Link to="/map">Map</Link>
           </li>
           <li onClick={logout}>
             <Link to="/login">Logout</Link>

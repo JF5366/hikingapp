@@ -61,7 +61,7 @@ function Show({ user }) {
         let updatedTrail = { ...trail }
         updatedTrail.comments.push(newComment)
         setTrail(updatedTrail)
-        bodyRef.current.value = ''
+        bodyRef.current.value = "";
         detailsRef.current.open = false
     }
 
@@ -110,7 +110,7 @@ function Show({ user }) {
                             <summary style={{ opacity: '.5' }}>Leave a comment:</summary>
                             <form onSubmit={handleSubmit}>
                                 <textarea style={{width:"300px", height:"100px", margin:"auto"}} ref={bodyRef} id="lc" cols="10" rows="1" />
-                                <button>Comment</button>
+                                <button className="subComm">Submit</button>
                             </form>
                         </details>
                     }

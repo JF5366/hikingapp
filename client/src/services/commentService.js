@@ -14,7 +14,9 @@ export async function createComment(comment, trailId) {
     const axios = customAxiosWithAuth()
     try {
         const response = await axios.post(`/comments/${trailId}/comments`, comment)
+        console.log(response)
         return response.data
+
     } catch(err) {
         console.log(err.message)
     }

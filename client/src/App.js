@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { userInfo } from './services/userService';
 
 import './index.css';
@@ -14,6 +14,7 @@ import EditComment from './pages/comments/Edit';
 import Register from './users/Register';
 import Login from './users/Login';
 import Navbar from './components/Navbar';
+import MapChart from './pages/map/Map';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
       <Routes>
           <Route path='/trails' element={<IndexTrail user={loggedIn} />} />
           <Route path='/trails/:id' element={<ShowTrail user={loggedIn} />} />
+          <Route path='/trails/map' element={<MapChart user={loggedIn} />} />
           {loggedIn ?
             <>
               <Route path='/trails/new' element={<NewTrail user={loggedIn} />} />

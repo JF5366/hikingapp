@@ -176,6 +176,10 @@ ul {
     margin: 0 5px 5px 15px;
     font-size: .7em;
   }
+  .subComm{
+    width: 75px;
+    margin: auto;
+  }
   .cUser{
    font-size: .8em;
    color: rgba(58, 57, 57, 0.699);
@@ -183,6 +187,15 @@ ul {
   }
   .cBody{
     font-weight: bold;
+  }
+
+  .editComm{
+    width:200px;
+  }
+
+
+  .map{
+    height: 180px;
   }
   
   #new-comment {

@@ -2,13 +2,17 @@ const Trails = require('../models/trailModel')
 const Comments = require('../models/commentModel')
 
 module.exports.createComment = async (req, res) => {
+    console.log(req.body, req.params.id)
     try {
         const comment = await Comments.create(req.body)
-        await Trails.findByIdAndUpdate(req.params.cid, {
+        console.log(comment, 'comment')
+        console.log(comment._id)
+        let result = await Trails.findByIdAndUpdate(req.params.id, {
             $push: {
                 comments: comment._id
             }
         })
+        console.log(result, 'result')
         res.status(200).json(comment)
     } catch(err) {
         res.status(400).json({ error: err.message })
