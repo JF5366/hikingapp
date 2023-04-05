@@ -15,6 +15,8 @@ function Edit() {
     let endRef = useRef()
     let timeRef = useRef()
     let imgRef = useRef()
+    let latRef=useRef()
+    let longRef=useRef()
 
     useEffect(() => {
         getTrails(params.id).then(data => setTrail(data))
@@ -28,7 +30,8 @@ function Edit() {
             start: startRef.current.value,
             end: endRef.current.value,
             time: timeRef.current.value,
-            image: imgRef.current.value
+            image: imgRef.current.value,
+            location: [Number(latRef.current.value),  Number(longRef.current.value)]
         }
         await updateTrails(trail._id, updatedTrail)
         navigate(`/trails/${trail._id}`)
@@ -57,6 +60,13 @@ function Edit() {
                         <label htmlFor="imag">Image:</label>
                         <input type="text" ref={imgRef} id="imag"  defaultValue={trail.image} /><br />
                    
+                        <label htmlFor="lat">Latitude:</label>
+                        <input type="text" ref={latRef} id="lat"  defaultValue={trail.location? trail.location[0] : 0} /><br />
+                       
+                        <label htmlFor="long">Longitude:</label>
+                        <input type="text" ref={longRef} id="long"  defaultValue={trail.location? trail.location[1] : 0} /><br />
+
+
 
                     <button>Submit</button>
                 </form>

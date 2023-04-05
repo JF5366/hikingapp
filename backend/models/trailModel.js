@@ -8,6 +8,7 @@ const trailSchema = new Schema({
   end: { type: String, required: true },
   time: { type: String, required: true },
   image: {type: String, required: true},
+  location: [{type: Number }],
   comments: [{
     // an id referencing the comment
     type: mongoose.Types.ObjectId,

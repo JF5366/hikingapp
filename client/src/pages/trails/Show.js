@@ -4,15 +4,18 @@ import { createComment, deleteComment } from "../../services/commentService"
 import { deleteTrails, getTrails, updateTrails } from "../../services/trailService"
 import axios from 'axios'
 
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+
 function Show({ user }) {
 
-    const [trail, setTrail] = useState({})
+    const [trail, setTrail] = useState(null)
 
     const navigate = useNavigate()
     const params = useParams()
     const bodyRef = useRef()
     const detailsRef = useRef()
-
+   
+    
     useEffect(() => {
         async function loadData() {
             const data = await getTrails(params.id)
@@ -65,9 +68,11 @@ function Show({ user }) {
         detailsRef.current.open = false
     }
 
+    
     return (
             <div className="show">
-                {/* <img className="bkimg" src={trail.image} alt="" /> */}
+                {trail && (
+                
                 <div className="trailz">
                   <div className="trailDisplay">
                     <div className="info">
@@ -76,13 +81,32 @@ function Show({ user }) {
                         <h4>Trail Start Location: {trail.start}</h4>
                         <h4>Trail End Location: {trail.end}</h4>
                         <h4>Estimated Time to Hike: {trail.time}</h4>
+                        <h4>Starting Longitude, Latitude: {trail.location}</h4>
                     </div>
                     <div className="image">
                      <img style={{width:"300px", height:"300px"}} src={trail.image} alt="" />
                     </div>
                     </div>
+
+                    <div className="showMap">
+                        
+                    <MapContainer  center={[34.6267, -84.1936]} zoom={13} scrollWheelZoom={false}>
+                        <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={[34.6267, -84.1936]}>
+                            {console.log(trail.location[0])}
+                        <Popup>
+                            Start of the trail
+                        </Popup>
+                        </Marker>
+                    </MapContainer>
+
+                    </div>
+
                     <div>
-                    <h5 style={{ opacity: '.3'}}>Trail by {trail.user} on {new Date(trail.createdAt).toLocaleDateString()} at {new Date(trail.createdAt).toLocaleTimeString()}</h5>
+                        <h5 style={{ opacity: '.3'}}>Trail by {trail.user} on {new Date(trail.createdAt).toLocaleDateString()} at {new Date(trail.createdAt).toLocaleTimeString()}</h5>
                     <div className='tBody'>{trail.body}</div>
 
                     {
@@ -131,6 +155,7 @@ function Show({ user }) {
                     </div>
                 </div>
                 </div>
+                )}
             </div>
     )
 }
