@@ -18,7 +18,7 @@ Deployment Links (coming soon but here are the links for now):
 Trello Board: https://trello.com/b/EInf6JeK/hiking-app-development
 
 ### Unsolved Problems:
-Confirmation of successful addition of spice to "cabinet"
+Add all the location pins to one map
 
 ### Future Enhancements:
 Trail locations shown on map, even better for full tracking of trail route
