@@ -67,6 +67,7 @@ function Show({ user }) {
 
     return (
             <div className="show">
+                {/* <img className="bkimg" src={trail.image} alt="" /> */}
                 <div className="trailz">
                   <div className="trailDisplay">
                     <div className="info">

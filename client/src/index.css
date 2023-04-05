@@ -57,7 +57,7 @@ li a{
   display: flex;
 }
 .trailz h2{
-  text-decoration: underline;
+  
   font-weight: bold;
   box-shadow: 0 0 10px rgba(2, 2, 2, 0.185);
   background-color: rgba(2, 2, 2, 0.082);
@@ -70,6 +70,11 @@ li a{
   margin: 15px;
 }
 
+.trails a{
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
 
 
 
@@ -91,6 +96,27 @@ ul {
 .trailz h5{
   margin: 10px 0 0 0;
 }
+.show{
+
+  /* position: relative; */
+}
+/* .bkimg{
+  width: auto;
+  height: 100%;
+  overflow: hidden;
+  /* position: absolute; 
+  object-fit: cover;
+
+}
+.trailz{
+
+  position: absolute;
+  z-index: 100;
+}
+.trailDisplay{
+  border: 1px solid red;
+} */
+
 
   .edit, .new {
     margin-top: 30px;
@@ -115,6 +141,8 @@ ul {
     width: fit-content;
     margin: auto;
     padding: 4px 7px;
+    position: relative;
+    left: -10;
   }
   form {
     display: flex;
@@ -204,25 +232,6 @@ ul {
     height: 180px;
   }
   
-  #new-comment {
-    margin-top: 20px;
-    font-size: 10pt;
-    padding: 0;
-  }
-  
-  #new-comment textarea {
-    width: 70%;
-    height: 100px;
-  }
-  
-  #care-input {
-    display: flex;
-    right: 400px;
-    margin: 20px;
-  }
-  #care-input div {
-    padding-top: 20px;
-  }
   
   .buttons {
     display: flex;
@@ -279,4 +288,10 @@ ul {
   li.posts-nav {
     position: absolute;
     left: 0;
+  }
+
+  .leaflet-container {
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
   }

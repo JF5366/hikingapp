@@ -1,17 +1,16 @@
 import React, { useRef } from 'react';
 //import { Map, TileLayer } from 'react-leaflet';
-import { MapContainer } from 'https://cdn.esm.sh/react-leaflet/MapContainer'
-import { TileLayer } from 'https://cdn.esm.sh/react-leaflet/TileLayer'
-import { useMap } from 'https://cdn.esm.sh/react-leaflet/hooks'
-//import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
-
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'https://cdn.esm.sh/react-leaflet'
+import { Icon } from "leaflet";
 
 
 
 const MapChart = () => {
     return (
-        <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+        
+        <MapContainer  center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+            console.log(hi)
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

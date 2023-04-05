@@ -39,24 +39,24 @@ function Edit() {
             <h1>Edit Trail</h1>
             <div className='edits' style={{ flexDirection: 'column' }}>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="nme">Name:</label><br />
+                    <label htmlFor="nme">Name:</label>
                     <input type="text" id="nme" ref={nameRef} defaultValue={trail.name} /><br />
 
-                    <label htmlFor="lgt">Length:</label><br />
+                    <label htmlFor="lgt">Length:</label>
                     <input type="text" ref={lengthRef} id="lgt"  defaultValue={trail.length} /><br />
 
-                    <label htmlFor="str">Start:</label><br />
+                    <label htmlFor="str">Start:</label>
                     <input type="text" ref={startRef} id="str" defaultValue={trail.start} /><br />
 
-                    <label htmlFor="ed">End:</label><br />
+                    <label htmlFor="ed">End:</label>
                     <input type="text" ref={endRef} id="ed" defaultValue={trail.end} /><br />
 
-                    <label htmlFor="tme">Duration:</label><br />
+                    <label htmlFor="tme">Duration:</label>
                     <input type="text" ref={timeRef} id="tme"  defaultValue={trail.time} /><br />
-                    <div>
-                        <label htmlFor="imag">Image:</label><br />
+                   
+                        <label htmlFor="imag">Image:</label>
                         <input type="text" ref={imgRef} id="imag"  defaultValue={trail.image} /><br />
-                    </div>
+                   
 
                     <button>Submit</button>
                 </form>

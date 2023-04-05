@@ -16,7 +16,10 @@ function Navbar({ user, setUser }) {
             <Link to="/trails">Trails</Link>
           </li>
           <li className="map-nav">
-            <Link to="/map">Map</Link>
+            <Link to="/trails/map">Map</Link>
+          </li>
+          <li className="about-nav">
+            <Link to="/frails/about">About</Link>
           </li>
           <li onClick={logout}>
             <Link to="/login">Logout</Link>
