@@ -8,7 +8,7 @@ function Navbar({ user, setUser }) {
   };
 
   return (
-    <ul className="user-auth navbar">
+    <ul className="user-auth">
       {user ? 
         <>
           <li>Welcome {user}!</li>
