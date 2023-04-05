@@ -81,7 +81,7 @@ function Show({ user }) {
                         <h4>Trail Start Location: {trail.start}</h4>
                         <h4>Trail End Location: {trail.end}</h4>
                         <h4>Estimated Time to Hike: {trail.time}</h4>
-                        <h4>Starting Longitude, Latitude: {trail.location}</h4>
+                        <h4>Starting Latitude, Longitude: {trail.location}</h4>
                     </div>
                     <div className="image">
                      <img style={{width:"300px", height:"300px"}} src={trail.image} alt="" />

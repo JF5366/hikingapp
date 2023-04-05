@@ -12,7 +12,8 @@ function New({ user }) {
     let endRef = useRef()
     let timeRef = useRef()
     let imgRef = useRef()
-    let locRef=useRef()
+    let latRef=useRef()
+    let longRef=useRef()
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -23,7 +24,7 @@ function New({ user }) {
             end: endRef.current.value,
             time: timeRef.current.value,
             image: imgRef.current.value,
-            location: locRef.current.value,
+            location: [Number(latRef.current.value),  Number(longRef.current.value)],
             user
         }
         let id = await createTrails(trail)
@@ -52,8 +53,13 @@ function New({ user }) {
                     <label htmlFor="imag">Image:</label><br />
                     <input type="text" ref={imgRef} id="imag"  defaultValue={trail.image} /><br />
 
-                    <label htmlFor="locat">Latitude, Longitude:</label>
-                        <input type="text" ref={locRef} id="locat"  defaultValue={trail.location} /><br />
+                    <label htmlFor="lat">Latitude:</label>
+                        <input type="text" ref={latRef} id="lat"  defaultValue={trail.location? trail.location[0] : 0} /><br />
+                       
+                        <label htmlFor="long">Longitude:</label>
+                        <input type="text" ref={longRef} id="long"  defaultValue={trail.location? trail.location[1] : 0} /><br />
+
+
 
 
                 <button>Submit</button>
