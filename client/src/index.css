@@ -196,6 +196,8 @@ a{
     flex-direction: column;
     padding: 10px;
   }
+  
+
   input {
     margin: 5px;
   }
@@ -323,6 +325,25 @@ a{
       margin: auto;
       width: 100%;
   }
+  .user-auth h1{
+    background-color: rgba(240, 248, 255, 0.623);
+    border-radius: 3px;
+    padding: 1px 4px;
+    margin-top: 7px;
+  }
+  .user-auth form label{
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.623);
+    width: fit-content;
+    margin: auto;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+.user-auth button{
+  width: fit-content;
+  margin: auto;
+  border-radius: 3px;
+}
   
   .user-auth {
     display: flex;

@@ -35,8 +35,8 @@ const MapChart = () => {
         <div className="markers">
           {trails?.map((trail, index) => 
             <Marker position={trail.location}>
-                  <Popup>
-                  Start of the <Link to={`/trails/${trail._id}`} key={index}> {trail.name}</Link>
+                  <Popup style={{backgroundImage: `url(${trail.image})`}}>
+                   Start of the <Link to={`/trails/${trail._id}`} key={index}> {trail.name}</Link>
 
                   </Popup>
              </Marker>
