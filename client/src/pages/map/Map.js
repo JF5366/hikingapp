@@ -3,24 +3,46 @@ import React, { useRef } from 'react';
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 // import { Icon } from "leaflet";
-
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { getAllTrails } from "../../services/trailService"
 
 
 const MapChart = () => {
-    const  position = [34.6267, -84.1936];
+  const [trails, setTrails] = useState([])
+  
+  useEffect(() => {
+    async function loadData() {
+        const data = await getAllTrails()
+        setTrails(data)
+    }
+    loadData()
+}, [])
+  
+  
+
+  
+  const  start = [39.0119, -98.4842];
 
     return (
         
-        <MapContainer  center={position} zoom={13} scrollWheelZoom={false}>
+        <MapContainer  center={start} zoom={4.5} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Popup>
-            Start of the trail
-          </Popup>
-        </Marker>
+
+        <div className="markers">
+          {trails?.map((trail, index) => 
+            <Marker position={trail.location}>
+                  <Popup>
+                  Start of the <Link to={`/trails/${trail._id}`} key={index}> {trail.name}</Link>
+
+                  </Popup>
+             </Marker>
+          )}
+        </div>
+        
       </MapContainer>
     
 

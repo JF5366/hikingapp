@@ -90,12 +90,12 @@ function Show({ user }) {
 
                     <div className="showMap">
                         
-                    <MapContainer  center={[34.6267, -84.1936]} zoom={13} scrollWheelZoom={false}>
+                    <MapContainer  center={trail.location} zoom={13} scrollWheelZoom={false}>
                         <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
-                        <Marker position={[34.6267, -84.1936]}>
+                        <Marker position={trail.location}>
                             {console.log(trail.location[0])}
                         <Popup>
                             Start of the trail
