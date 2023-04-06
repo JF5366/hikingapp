@@ -35,22 +35,22 @@ function New({ user }) {
         <div className="new">
             <h1>New Trail</h1>
             <form onSubmit={handleSubmit}>
-                    <label htmlFor="nme">Name:</label><br />
-                    <input type="text" id="nme" ref={nameRef} defaultValue={trail.name} /><br /><br />
+                    <label htmlFor="nme">Name:</label>
+                    <input type="text" id="nme" ref={nameRef} defaultValue={trail.name} /><br />
 
-                    <label htmlFor="lgt">Length:</label><br />
-                    <input type="text" ref={lengthRef} id="lgt" cols="30" rows="10" defaultValue={trail.length} /><br /><br />
+                    <label htmlFor="lgt">Length:</label>
+                    <input type="text" ref={lengthRef} id="lgt" cols="30" rows="10" defaultValue={trail.length} /><br />
 
-                    <label htmlFor="str">Start:</label><br />
-                    <input type="text" ref={startRef} id="str" cols="30" rows="10" defaultValue={trail.start} /><br /><br />
+                    <label htmlFor="str">Start:</label>
+                    <input type="text" ref={startRef} id="str" cols="30" rows="10" defaultValue={trail.start} /><br />
 
-                    <label htmlFor="ed">End:</label><br />
-                    <input type="text" ref={endRef} id="ed" cols="30" rows="10" defaultValue={trail.end} /><br /><br />
+                    <label htmlFor="ed">End:</label>
+                    <input type="text" ref={endRef} id="ed" cols="30" rows="10" defaultValue={trail.end} /><br />
 
-                    <label htmlFor="tme">Duration:</label><br />
-                    <input type="text" ref={timeRef} id="tme" cols="30" rows="10" defaultValue={trail.time} /><br /><br />
+                    <label htmlFor="tme">Duration:</label>
+                    <input type="text" ref={timeRef} id="tme" cols="30" rows="10" defaultValue={trail.time} /><br />
 
-                    <label htmlFor="imag">Image:</label><br />
+                    <label htmlFor="imag">Image:</label>
                     <input type="text" ref={imgRef} id="imag"  defaultValue={trail.image} /><br />
 
                     <label htmlFor="lat">Latitude:</label>
