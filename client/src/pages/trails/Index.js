@@ -21,19 +21,21 @@ function Index({ user }) {
 
                         {trails?.map((trail, index) => 
                             <Link to={`/trails/${trail._id}`} key={index}>
-                                <div className="trailz">
+                                <div className="trailz" style={{backgroundImage: `url(${trail.image})`}}>
                                     {trail.name}
+                                
                                 </div>
                             </Link>
                         )}
             
-                    {user && 
+                    
+    
+                </div>
+                {user && 
                         <Link to="/trails/new">
                             <button>NEW TRAIL</button>
                         </Link>
                     }
-    
-                </div>
             </div>
     )
 }

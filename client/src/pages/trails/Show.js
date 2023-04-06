@@ -73,7 +73,7 @@ function Show({ user }) {
             <div className="show">
                 {trail && (
                 
-                <div className="trailz">
+                <div className="trail-card">
                   <div className="trailDisplay">
                     <div className="info">
                         <h2>{trail.name}</h2>

@@ -5,9 +5,12 @@
 ### Introduction:
 This hiking app to track the long distance trails in the Unites States. Here users can view and add additional trails. Users can also log their own experiences on the trails.
 
-<img width="596" alt="" src="![Alt text](figma.jpg)">
+### Screenshots:
+<img width="596" alt="" src="![Figma](/figma.jpg)">
 
-<img width="550" alt="" src="![Alt text](login.jpg)">
+<img width="550" alt="" src="![Login](/login.jpg)">
+
+<img width="550" alt="" src="![View](/view.jpg)">
 
 ### Technologies Used:
 - HTML

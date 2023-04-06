@@ -1,9 +1,12 @@
 .root{
   width: 100%;
+  background: aquamarine;
 }
 
 .App {
   text-align: center;
+ 
+  background: url('./images/AllTrails.png');
   background: url('https://cdn.backpacker.com/wp-content/uploads/2017/01/longtrailsmap_1500px.png?crop=16:9&width=1500') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -19,26 +22,56 @@
   left: 0;
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
   transition: transform 0.2s;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(53, 53, 53, 0.623);
   font-size: 18px;
+}
+li {
+  display: flex;
+  /* text-shadow: 0 0 10px rgba(53, 53, 53, 0.623); */
+  border-radius: 25px;
+  background-color: rgba(129, 129, 129, 0.923);
+  box-shadow: 0 0 15px rgba(129, 129, 129, 0.923);
 }
 li a{
   text-decoration: none;
   color: black;
 }
-
-.user-auth{
-  background: white;
+li a:hover{
+  color:rgba(0, 128, 0, 0.63);
 }
 
+/* .index{
+  color: red;
+} */
 
 .index h1{
-  background: white;
+  background: url('https://www.visitmysmokies.com/wp-content/uploads/2014/09/Smoky-Mountains-fall-colors-2014.jpg') no-repeat center;
+  background-size:cover;
   width: fit-content;
   margin: auto;
   border-radius: 4px;
   padding:  .7em 1em;
-  box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+  text-shadow: 0 0 10px rgba(226, 226, 226, 0.897);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.788);
+  font-weight: bold;
+  border-bottom: black;
+}
+
+#trails{
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  
+}
+
+#trails > a{
+  
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  
 }
 
 .trailz{
@@ -47,57 +80,68 @@ li a{
   border:rgb(7, 7, 7);
   width: fit-content;
   margin: 1em auto;
-  padding: .4em;
-  box-shadow: 0 0 10px rgb(2, 2, 2, 0.3);
+  padding: 1em;
+  box-shadow: 0 0 10px rgba(2, 2, 2, 0.521);
   color:black;
-  display: flex;
-  flex-direction: column;
+  text-shadow: 0 0 15px rgb(255, 254, 254);
+
+}
+
+
+.trail-card{
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 10px;
+  border:rgb(7, 7, 7);
+  width: 60vw;
+  margin: 1em auto;
+  padding: 1em;
+  box-shadow: 0 0 10px rgba(2, 2, 2, 0.521);
+  color:black;
+  text-shadow: 0 0 15px rgb(255, 254, 254);
+
 }
 .trailDisplay{
   display: flex;
 }
-.trailz h2{
+.trail-card h2{
   
   font-weight: bold;
   box-shadow: 0 0 10px rgba(2, 2, 2, 0.185);
   background-color: rgba(2, 2, 2, 0.082);
+  margin: 25px;
+  
 }
-.trailz .info{
+.trail-card .info{
+  margin: 25px;
+}
+
+.trail-card .image{
+  margin: 15px;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+.trail-card h4{
+  margin: 15px 0 0 0;
+  text-shadow: 0 0 2px rgb(138, 138, 138);
+}
+
+.leaflet-container{
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(2, 2, 2, 0.185);
   margin: 15px;
 }
-
-.trailz .image{
-  margin: 15px;
-}
-
-.trails > a{
-  text-decoration: none;
-  font-weight: bold;
-  color: rgb(206, 47, 47);
-}
-
-
 
 a{
   text-decoration: none;
   font-weight: bold;
   color: black;
 }
-navbar {
-    position: relative;
-    border: 1px solid black;
-    list-style: none;
-    padding: 15px;
-    background-color: white;
-  }
+/*  */
   
-  li {
-    display: flex;
-    background-color: white;
-  }
-.trailz h5{
-  margin: 10px 0 0 0;
-}
+
+
 .show{
 
   /* position: relative; */
@@ -272,7 +316,10 @@ navbar {
     align-items: center;
     width: 40vw;
     margin: auto;
-
+    border-radius: 10px;
+      /* background: white; */
+      background: url('https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_455,q_60,w_810/v1/clients/asheville/RobTravis__MG_2976-Edit_7-Edit_8-Edit_adjust-Edit_f42b0842-31df-4b7a-ac7e-1f1f95cd86a9.jpg');
+    
   }
   
   navbar.user-auth {
